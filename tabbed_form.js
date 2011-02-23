@@ -1,9 +1,9 @@
-var TabbedForms = function(root) {
+var TabbedForm = function(root) {
   this.root = $(root);
   this.initialize();
 }
 
-TabbedForms.prototype = {
+TabbedForm.prototype = {
   initialize: function() {
     this.initSteps();
     this.initBehaviour();
@@ -120,7 +120,7 @@ TabbedForms.prototype = {
 
 $(function() {
   $('nav.tabbed-form').each( function() {
-    if(!this.wizard)
-      this.wizard = new TabbedForms(this);
+    if(!this.tabbedForm)
+      this.tabbedForm = new TabbedForm(this);
   });
 });
