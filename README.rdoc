@@ -1,0 +1,35 @@
+= Javascript tabbed forms
+
+How does it work?
+
+Imagine the following form (with simple_form ofcourse ;)) in HAML code:
+  = simple_form_for resource do |form|
+    %nav.tabbed-form
+      %ol
+        %li= link_to t('.general'), '#', :rel => 'general'
+        %li= link_to t('.contacts'), '#', :rel => 'contacts'
+        %li= link_to t('.events'), '#', :rel => 'events'
+
+    %section.tab#general
+      ...
+
+    %section.tab#contact
+      ...
+
+    %section.tab#events
+      ...
+
+
+    %fieldset.buttons
+      %button.tab-previous= t('.previous')
+      %button= t('.submit')
+      %button.tab-next= t('.next')
+
+All section tags will now automaticly be divided in seperate tabs. When a user hits save an there is an error on a specific tab, the javascript lib will automaticly switch to that tab.
+
+Just be sure that the ID's of your section's are the same as in the rel attribute of your tab links.
+
+= License and credits
+Use it and have fun with it! Comments, cakes and hugs are welcome! Just stick to the license!
+
+Copyright 2011, Diederick Lawson - Altovista. Released under the FreeBSD license.
